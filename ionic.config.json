@@ -1,0 +1,7 @@
+{
+  "name": "1.14AppResponsivePersonalizada",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
