@@ -9,12 +9,12 @@ import {map} from 'rxjs/operators';
 })
 export class HomePage {
 
-  users: any;
+  animals: any;
   filtro: string = "";
 
   constructor(private httpClient:HttpClient) {
 
-    this.users = this.httpClient.get('https://raw.githubusercontent.com/Jcorvil/arrayAgenda/master/array.json').pipe(map((res:any)=>res['results']));
+    this.animals = this.httpClient.get('https://raw.githubusercontent.com/Jcorvil/HLC_1.14.AppResponsivePersonalizada/master/arrayanimales/animals.json');
 
   }
 

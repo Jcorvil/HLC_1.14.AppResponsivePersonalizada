@@ -1,24 +1,23 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Lista de usuarios
+      Lista de Animales
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-input [(ngModel)]="filtro" placeholder="Introduzca el nombre"></ion-input>
+  <ion-input [(ngModel)]="filtro" placeholder="Introduzca el animal"></ion-input>
   <ion-grid>
     <ion-row>
-      <ng-container *ngFor="let user of users | async">
-        <ion-col *ngIf="filtro=='' || user.name.first.toLowerCase().startsWith(filtro.toLowerCase())" size-xl="2" size-l="3" size-md="4" size-sm="6" size-xs="12">
+      <ng-container *ngFor="let animal of animals | async">
+        <ion-col *ngIf="filtro=='' || animal?.name?.common.toLowerCase().startsWith(filtro.toLowerCase())" size-xl="2" size-l="3" size-md="4" size-sm="6" size-xs="12">
           <ion-card>
             <ion-card-content>
-              <ion-avatar><img [src]="user.picture.medium"></ion-avatar>
-              <p>{{user.gender}}</p>
-              <p>{{user.name.first}}</p>
-              <p>{{user.location.street.name}}, {{user.location.street.number}}</p>
-              
+              <ion-avatar><img [src]="animal.picture.medium"></ion-avatar>
+              <p>{{animal.name.common}}</p>
+              <p>{{animal.name.scientific}}</p>
+              <p>{{animal.country}}</p>
               
             </ion-card-content>
           </ion-card>
