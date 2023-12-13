@@ -25,3 +25,61 @@
 #container a {
   text-decoration: none;
 }
+
+ion-card {
+  background-color: rgb(77, 97, 87);
+
+  p {
+    color: white;
+  }
+}
+
+ion-content {
+  --ion-background-color: rgb(40, 77, 52);
+}
+
+
+//Pantallas medianas en desktop. Cambia el color del fondo y el ancho de las tarjetas
+@media (max-width: 900px) {
+  ion-content {
+    --ion-background-color: rgb(92, 78, 54);
+  }
+
+  ion-card {
+    width: 70%;
+  }
+}
+
+//Pantallas android en vertical. Cambia el color del fondo, muestra una sola tarjeta a la vez y cambia el estilo de los botones
+@media (max-width: 676px) {
+  ion-content {
+    --ion-background-color: rgb(109, 131, 172);
+  }
+
+  ion-card {
+    width: 100%;
+    margin: 0;
+  }
+
+  ion-segment {
+    display: block;
+  }
+
+  ion-segment-button {
+    color: white;
+  }
+}
+
+//Pantallas android en horizontal. Centra los botones, reduce su tamaño y reduce el tamaño de las tarjetas
+@media (orientation: landscape) {
+  ion-segment {
+    display: block;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  ion-card {
+    width: 80%;
+  }
+}
