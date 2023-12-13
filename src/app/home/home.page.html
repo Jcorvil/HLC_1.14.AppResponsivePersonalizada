@@ -1,24 +1,38 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Lista de Animales
-    </ion-title>
+    <ion-title> Lista de Animales </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-input [(ngModel)]="filtro" placeholder="Introduzca el animal"></ion-input>
+  <ion-segment [(ngModel)]="tipoFiltro">
+    <ion-segment-button value="nombreComun">Nombre Común</ion-segment-button>
+    <ion-segment-button value="nombreCientifico"
+      >Nombre Científico</ion-segment-button
+    >
+    <ion-segment-button value="pais">País</ion-segment-button>
+  </ion-segment>
+  <ion-input class="ion-text-center" [(ngModel)]="filtro" placeholder="Búsqueda"></ion-input>
+
   <ion-grid>
     <ion-row>
-      <ng-container *ngFor="let animal of animals | async">
-        <ion-col *ngIf="filtro=='' || animal?.name?.common.toLowerCase().startsWith(filtro.toLowerCase())" size-xl="2" size-l="3" size-md="4" size-sm="6" size-xs="12">
+      <ng-container *ngFor="let animal of filtroAnimales | async">
+        <br />
+        <ion-col
+          *ngIf="cumpleFiltro(animal)"
+          size-xl="2"
+          size-l="3"
+          size-md="4"
+          size-sm="6"
+          size-xs="12"
+        >
+          <br />
           <ion-card>
             <ion-card-content>
-              <ion-avatar><img [src]="animal.picture.medium"></ion-avatar>
+              <img [src]="animal.picture" />
               <p>{{animal.name.common}}</p>
               <p>{{animal.name.scientific}}</p>
               <p>{{animal.country}}</p>
-              
             </ion-card-content>
           </ion-card>
         </ion-col>
